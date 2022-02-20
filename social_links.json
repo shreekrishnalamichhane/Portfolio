@@ -1,0 +1,65 @@
+[
+  {
+    "name": "linkedin",
+    "text": "shree-krishna-lamichhane-710645191",
+    "link": "https://www.linkedin.com/in/shree-krishna-lamichhane-710645191",
+    "icon_light": "assets/icons/light/Linkedin.svg",
+    "icon_dark": "assets/icons/dark/Linkedin.svg"
+  },
+  {
+    "name": "twitter",
+    "text": "me_shreekrishna",
+    "link": "https://twitter.com/me_shreekrishna",
+    "icon_light": "assets/icons/light/Twitter.svg",
+    "icon_dark": "assets/icons/dark/Twitter.svg"
+  },
+  {
+    "name": "github",
+    "text": "shreekrishnalamichhane",
+    "link": "https://github.com/shreekrishnalamichhane",
+    "icon_light": "assets/icons/light/Github.svg",
+    "icon_dark": "assets/icons/dark/Github.svg"
+  },
+  {
+    "name": "dribble",
+    "text": "uniksk",
+    "link": "https://dribbble.com/uniksk",
+    "icon_light": "assets/icons/light/Dribbble.svg",
+    "icon_dark": "assets/icons/dark/Dribbble.svg"
+  },
+  {
+    "name": "figma",
+    "text": "@uniksk",
+    "link": "https://www.figma.com/@uniksk",
+    "icon_light": "assets/icons/light/Figma.svg",
+    "icon_dark": "assets/icons/dark/Figma.svg"
+  },
+  {
+    "name": "facebook",
+    "text": "shreekrishnalamichhane2056",
+    "link": "https://www.facebook.com/shreekrishnalamichhane2056/",
+    "icon_light": "assets/icons/light/Facebook.svg",
+    "icon_dark": "assets/icons/dark/Facebook.svg"
+  },
+  {
+    "name": "instagram",
+    "text": "skrishnalamichhane",
+    "link": "https://www.instagram.com/skrishnalamichhane/",
+    "icon_light": "assets/icons/light/Instagram.svg",
+    "icon_dark": "assets/icons/dark/Instagram.svg"
+  },
+  {
+    "name": "discord",
+    "text": "6PVf3yjn2g",
+    "link": "https://discord.gg/6PVf3yjn2g",
+    "icon_light": "assets/icons/light/Discord.svg",
+    "icon_dark": "assets/icons/dark/Discord.svg"
+  },
+  {
+    "name": "spotify",
+    "text": "5qmdcaprcmzb577iljhfdul3v?si=1a3719f79c974cc0",
+    "link": "https://open.spotify.com/user/5qmdcaprcmzb577iljhfdul3v?si=1a3719f79c974cc0",
+    "icon_light": "assets/icons/light/Spotify.svg",
+    "icon_dark": "assets/icons/dark/Spotify.svg"
+  }
+]
