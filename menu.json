@@ -11,8 +11,8 @@
   },
   {
     "text": "Projects",
-    "link": "",
-    "disabled": true
+    "link": "https://github.com/shreekrishnalamichhane?tab=repositories",
+    "disabled": false
   },
   {
     "text": "Experience",
