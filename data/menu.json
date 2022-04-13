@@ -1,0 +1,33 @@
+[
+    {
+      "text": "Blogs",
+      "link": "https://blog.shreekrishnalamichhane.com.np",
+      "disabled": false,
+      "target":"_blank"
+    },
+    {
+      "text": "Skills",
+      "link": "",
+      "disabled": true,
+      "target":"_blank"
+    },
+    {
+      "text": "Projects",
+      "link": "/projects.html",
+      "disabled": false,
+      "target":"_self"
+    },
+    {
+      "text": "Experience",
+      "link": "",
+      "disabled": true,
+      "target":"_blank"
+    },
+    {
+      "text": "Certificates",
+      "link": "",
+      "disabled": true,
+      "target":"_blank"
+    }
+  ]
+  
