@@ -1,0 +1,5 @@
+.image-input [data-kt-image-input-action="save"]{
+    position: absolute;
+    left: 100%;
+    top: 50%;
+}
