@@ -69,9 +69,17 @@
 
             @foreach ($data['projects'] as $project)
                 <div class="card--project">
-                    <a href="project1.html"><span>🏆 </span>{{ $project->title }}</a>
+                    <a href="{{ route('frontend.pages.projects.show', $project->slug) }}">
+                        <span>🏆</span>
+                        {{ $project->title }}
+                    </a>
                 </div>
             @endforeach
+            <div class="card--project">
+                <a href="{{ route('frontend.pages.projects.index') }}">
+                    See All Projects
+                </a>
+            </div>
         </section>
     @endif
 @endsection

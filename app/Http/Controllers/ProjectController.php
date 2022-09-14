@@ -49,6 +49,7 @@ class ProjectController extends Controller
 
         $newProject = new Project;
         $newProject->title = $request->get('title');
+        $newProject->slug = random_slug(20);
         $newProject->duration = $request->get('duration');
         $newProject->description = $request->get('description');
         $newProject->source = $request->get('source');

@@ -20,7 +20,9 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/', [PublicController::class, 'home']);
+Route::get('/', [PublicController::class, 'home'])->name('frontend.pages.homepage.show');
+Route::get('/projects', [PublicController::class, 'projects_index'])->name('frontend.pages.projects.index');
+Route::get('/projects/{slug}', [PublicController::class, 'projects_show'])->name('frontend.pages.projects.show');
 
 Auth::routes();
 

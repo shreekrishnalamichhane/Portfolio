@@ -121,6 +121,12 @@ if (!function_exists('generate_slug')) {
         return Str::slug($string) . '-' . rand(1000, 9999);
     }
 }
+if (!function_exists('random_slug')) {
+    function random_slug($length = 30)
+    {
+        return Str::random($length);
+    }
+}
 
 function get_time_ago($time)
 {
