@@ -158,6 +158,36 @@
                         </div>
                     </div>
                 </div>
+                <div data-kt-menu-trigger="click"
+                    class="menu-item @if (backend_active_menu('backend.features.workhistories')) here show @endif menu-accordion">
+                    <span class="menu-link">
+                        <span class="menu-icon">
+                            <i class="bi bi-building fs-3"></i>
+                        </span>
+                        <span class="menu-title">Work History</span>
+                        <span class="menu-arrow"></span>
+                    </span>
+                    <div class="menu-sub menu-sub-accordion @if (backend_active_menu('backend.features.workhistories')) menu-active-bg @endif">
+                        <div class="menu-item">
+                            <a class="menu-link @if (backend_active_menu('backend.features.workhistories.create')) active @endif"
+                                href="{{ route('backend.features.workhistories.create') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">Create new</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link @if (backend_active_menu('backend.features.workhistories.index')) active @endif"
+                                href="{{ route('backend.features.workhistories.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">Manage Links</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 <div class="menu-item">
                     <div class="menu-content pt-8 pb-2">
                         <span class="menu-section text-muted text-uppercase fs-8 ls-1">Account</span>

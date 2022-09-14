@@ -4,6 +4,7 @@ use App\Http\Controllers\PublicController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\SocialLinkController;
 use App\Http\Controllers\TechStackController;
+use App\Http\Controllers\WorkHistoryController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -49,6 +50,15 @@ Route::group([], function () {
         Route::middleware(['auth'])->get('/backend/features/sociallinks/{socialLink}/edit', [SocialLinkController::class, 'edit'])->name('backend.features.sociallinks.edit');
         Route::middleware(['auth'])->post('/backend/features/sociallinks/{socialLink}/update', [SocialLinkController::class, 'update'])->name('backend.features.sociallinks.update');
         Route::middleware(['auth'])->post('/backend/features/sociallinks/{socialLink}/delete', [SocialLinkController::class, 'destroy'])->name('backend.features.sociallinks.delete');
+    });
+// Routes to CRUD workhistories
+    Route::middleware([])->group(function () {
+        Route::middleware(['auth'])->get('/backend/features/workhistories/index', [WorkHistoryController::class, 'index'])->name('backend.features.workhistories.index');
+        Route::middleware(['auth'])->get('/backend/features/workhistories/create', [WorkHistoryController::class, 'create'])->name('backend.features.workhistories.create');
+        Route::middleware(['auth'])->post('/backend/features/workhistories/store', [WorkHistoryController::class, 'store'])->name('backend.features.workhistories.store');
+        Route::middleware(['auth'])->get('/backend/features/workhistories/{workHistory}/edit', [WorkHistoryController::class, 'edit'])->name('backend.features.workhistories.edit');
+        Route::middleware(['auth'])->post('/backend/features/workhistories/{workHistory}/update', [WorkHistoryController::class, 'update'])->name('backend.features.workhistories.update');
+        Route::middleware(['auth'])->post('/backend/features/workhistories/{workHistory}/delete', [WorkHistoryController::class, 'destroy'])->name('backend.features.workhistories.delete');
     });
 
 });
