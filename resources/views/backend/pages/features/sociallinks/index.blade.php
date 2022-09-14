@@ -25,8 +25,8 @@
                     'pageLength': 10,
                     'columnDefs': [{
                             orderable: false,
-                            targets: 3
-                        }, // Disable ordering on column 4 (actions)
+                            targets: 4
+                        }, // Disable ordering on column 5 (actions)
                     ]
                 });
             }
