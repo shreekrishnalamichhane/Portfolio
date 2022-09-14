@@ -34,7 +34,7 @@
             // Public methods
             return {
                 init: function() {
-                    table = document.querySelector('#kt_skills_index_table');
+                    table = document.querySelector('#kt_techstack_index_table');
                     if (!table) {
                         return;
                     }
@@ -64,9 +64,9 @@
                 <!--end::Wrapper-->
                 <!--begin::Card toolbar-->
                 <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
-                    @if (Route::has('backend.features.skills.create'))
+                    @if (Route::has('backend.features.techstacks.create'))
                         <!--begin::Add New-->
-                        <a href="{{ route('backend.features.skills.create') }}" class="btn btn-primary">Add New</a>
+                        <a href="{{ route('backend.features.techstacks.create') }}" class="btn btn-primary">Add New</a>
                         <!--end::Add New-->
                     @endif
                 </div>
@@ -75,15 +75,15 @@
             <!--end::Card header-->
             <!--begin::Card body-->
             <div class="card-body pt-0">
-                @if (count($data['skills']) > 0)
+                @if (count($data['techstacks']) > 0)
                     <!--begin::Table-->
-                    <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_skills_index_table">
+                    <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_techstack_index_table">
                         <!--begin::Table head-->
                         <thead>
                             <!--begin::Table row-->
                             <tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
                                 <th class="min-w-30px">#ID</th>
-                                <th class="min-w-100px">Skill</th>
+                                <th class="min-w-100px">Tech Stack</th>
                                 <th class="min-w-70px">Order</th>
                                 <th class="text-end min-w-100px">Actions</th>
                             </tr>
@@ -92,20 +92,20 @@
                         <!--end::Table head-->
                         <!--begin::Table body-->
                         <tbody class="fw-bold text-gray-600">
-                            @foreach ($data['skills'] as $skill)
+                            @foreach ($data['techstacks'] as $techstack)
                                 <!--begin::Table row-->
                                 <tr>
-                                    <td data-kt-ecommerce-order-filter="skills_id">
-                                        {{ $skill->id }}
+                                    <td data-kt-ecommerce-order-filter="techstacks_id">
+                                        {{ $techstack->id }}
                                     </td>
 
                                     <td class="">
                                         <span
-                                            class="text-gray-800 text-hover-primary fs-5 fw-bolder">{{ $skill->skill }}</span>
+                                            class="text-gray-800 text-hover-primary fs-5 fw-bolder">{{ $techstack->techstack }}</span>
                                     </td>
 
                                     <td class="">
-                                        <span class="fw-bolder">{{ $skill->order }}</span>
+                                        <span class="fw-bolder">{{ $techstack->order }}</span>
                                     </td>
 
                                     <!--begin::Action=-->
@@ -127,17 +127,17 @@
                                             data-kt-menu="true">
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="{{ route('backend.features.skills.edit', $skill->id) }}"
+                                                <a href="{{ route('backend.features.techstacks.edit', $techstack->id) }}"
                                                     class="menu-link px-3">Edit</a>
                                             </div>
                                             <!--end::Menu item-->
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <form method="POST" id="skills_delete_form_{{ $skill->id }}"
-                                                    action="{{ route('backend.features.skills.delete', $skill->id) }}">
+                                                <form method="POST" id="techstacks_delete_form_{{ $techstack->id }}"
+                                                    action="{{ route('backend.features.techstacks.delete', $techstack->id) }}">
                                                     @csrf
                                                 </form>
-                                                <a onclick="event.preventDefault();document.getElementById('skills_delete_form_{{ $skill->id }}').submit();"
+                                                <a onclick="event.preventDefault();document.getElementById('techstacks_delete_form_{{ $techstack->id }}').submit();"
                                                     class="menu-link px-3">Delete</a>
                                             </div>
                                             <!--end::Menu item-->

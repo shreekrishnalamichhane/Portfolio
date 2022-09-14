@@ -74,7 +74,7 @@
                         <span class="menu-icon">
                             <i class="bi bi-tag fs-3"></i>
                         </span>
-                        <span class="menu-title">skills</span>
+                        <span class="menu-title">Skills</span>
                         <span class="menu-arrow"></span>
                     </span>
                     <div class="menu-sub menu-sub-accordion @if (backend_active_menu('backend.features.skills')) menu-active-bg @endif">
@@ -90,6 +90,36 @@
                         <div class="menu-item">
                             <a class="menu-link @if (backend_active_menu('backend.features.skills.index')) active @endif"
                                 href="{{ route('backend.features.skills.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">Manage Skills</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div data-kt-menu-trigger="click"
+                    class="menu-item @if (backend_active_menu('backend.features.techstacks')) here show @endif menu-accordion">
+                    <span class="menu-link">
+                        <span class="menu-icon">
+                            <i class="bi bi-bar-chart fs-3"></i>
+                        </span>
+                        <span class="menu-title">Tech Stack</span>
+                        <span class="menu-arrow"></span>
+                    </span>
+                    <div class="menu-sub menu-sub-accordion @if (backend_active_menu('backend.features.techstacks')) menu-active-bg @endif">
+                        <div class="menu-item">
+                            <a class="menu-link @if (backend_active_menu('backend.features.techstacks.create')) active @endif"
+                                href="{{ route('backend.features.techstacks.create') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">Create new</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link @if (backend_active_menu('backend.features.techstacks.index')) active @endif"
+                                href="{{ route('backend.features.techstacks.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
