@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\SocialLinkController;
@@ -59,6 +60,15 @@ Route::group([], function () {
         Route::middleware(['auth'])->get('/backend/features/workhistories/{workHistory}/edit', [WorkHistoryController::class, 'edit'])->name('backend.features.workhistories.edit');
         Route::middleware(['auth'])->post('/backend/features/workhistories/{workHistory}/update', [WorkHistoryController::class, 'update'])->name('backend.features.workhistories.update');
         Route::middleware(['auth'])->post('/backend/features/workhistories/{workHistory}/delete', [WorkHistoryController::class, 'destroy'])->name('backend.features.workhistories.delete');
+    });
+// Routes to CRUD projects
+    Route::middleware([])->group(function () {
+        Route::middleware(['auth'])->get('/backend/features/projects/index', [ProjectController::class, 'index'])->name('backend.features.projects.index');
+        Route::middleware(['auth'])->get('/backend/features/projects/create', [ProjectController::class, 'create'])->name('backend.features.projects.create');
+        Route::middleware(['auth'])->post('/backend/features/projects/store', [ProjectController::class, 'store'])->name('backend.features.projects.store');
+        Route::middleware(['auth'])->get('/backend/features/projects/{project}/edit', [ProjectController::class, 'edit'])->name('backend.features.projects.edit');
+        Route::middleware(['auth'])->post('/backend/features/projects/{project}/update', [ProjectController::class, 'update'])->name('backend.features.projects.update');
+        Route::middleware(['auth'])->post('/backend/features/projects/{project}/delete', [ProjectController::class, 'destroy'])->name('backend.features.projects.delete');
     });
 
 });
