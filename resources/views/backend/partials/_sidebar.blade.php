@@ -123,7 +123,37 @@
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
-                                <span class="menu-title">Manage Skills</span>
+                                <span class="menu-title">Manage Stacks</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div data-kt-menu-trigger="click"
+                    class="menu-item @if (backend_active_menu('backend.features.sociallinks')) here show @endif menu-accordion">
+                    <span class="menu-link">
+                        <span class="menu-icon">
+                            <i class="bi bi-person-video2 fs-3"></i>
+                        </span>
+                        <span class="menu-title">Social Link</span>
+                        <span class="menu-arrow"></span>
+                    </span>
+                    <div class="menu-sub menu-sub-accordion @if (backend_active_menu('backend.features.sociallinks')) menu-active-bg @endif">
+                        <div class="menu-item">
+                            <a class="menu-link @if (backend_active_menu('backend.features.sociallinks.create')) active @endif"
+                                href="{{ route('backend.features.sociallinks.create') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">Create new</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link @if (backend_active_menu('backend.features.sociallinks.index')) active @endif"
+                                href="{{ route('backend.features.sociallinks.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">Manage Links</span>
                             </a>
                         </div>
                     </div>

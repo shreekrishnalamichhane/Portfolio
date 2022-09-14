@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\SkillController;
+use App\Http\Controllers\SocialLinkController;
 use App\Http\Controllers\TechStackController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -39,6 +40,15 @@ Route::group([], function () {
         Route::middleware(['auth'])->get('/backend/features/techstacks/{techStack}/edit', [TechStackController::class, 'edit'])->name('backend.features.techstacks.edit');
         Route::middleware(['auth'])->post('/backend/features/techstacks/{techStack}/update', [TechStackController::class, 'update'])->name('backend.features.techstacks.update');
         Route::middleware(['auth'])->post('/backend/features/techstacks/{techStack}/delete', [TechStackController::class, 'destroy'])->name('backend.features.techstacks.delete');
+    });
+// Routes to CRUD sociallinks
+    Route::middleware([])->group(function () {
+        Route::middleware(['auth'])->get('/backend/features/sociallinks/index', [SocialLinkController::class, 'index'])->name('backend.features.sociallinks.index');
+        Route::middleware(['auth'])->get('/backend/features/sociallinks/create', [SocialLinkController::class, 'create'])->name('backend.features.sociallinks.create');
+        Route::middleware(['auth'])->post('/backend/features/sociallinks/store', [SocialLinkController::class, 'store'])->name('backend.features.sociallinks.store');
+        Route::middleware(['auth'])->get('/backend/features/sociallinks/{socialLink}/edit', [SocialLinkController::class, 'edit'])->name('backend.features.sociallinks.edit');
+        Route::middleware(['auth'])->post('/backend/features/sociallinks/{socialLink}/update', [SocialLinkController::class, 'update'])->name('backend.features.sociallinks.update');
+        Route::middleware(['auth'])->post('/backend/features/sociallinks/{socialLink}/delete', [SocialLinkController::class, 'destroy'])->name('backend.features.sociallinks.delete');
     });
 
 });
