@@ -137,7 +137,7 @@
                                                     action="{{ route('backend.features.skills.delete', $skill->id) }}">
                                                     @csrf
                                                 </form>
-                                                <a onclick="event.preventDefault();document.getElementById('skills_delete_form_{{ $skill->id }}').submit();"
+                                                <a onclick="event.preventDefault(); showConfirmDialog('Are you sure to delete?','skills_delete_form_{{ $skill->id }}');"
                                                     class="menu-link px-3">Delete</a>
                                             </div>
                                             <!--end::Menu item-->

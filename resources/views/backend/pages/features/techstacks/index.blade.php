@@ -137,7 +137,7 @@
                                                     action="{{ route('backend.features.techstacks.delete', $techstack->id) }}">
                                                     @csrf
                                                 </form>
-                                                <a onclick="event.preventDefault();document.getElementById('techstacks_delete_form_{{ $techstack->id }}').submit();"
+                                                <a onclick="event.preventDefault(); showConfirmDialog('Are you sure to delete?','techstacks_delete_form_{{ $techstack->id }}');"
                                                     class="menu-link px-3">Delete</a>
                                             </div>
                                             <!--end::Menu item-->
