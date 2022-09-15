@@ -2,16 +2,12 @@
 
 @section('content')
     <section id="wrapper--hero" class="section--page">
-        <img id="profile-pic" src="./assets/images/profile_pic.JPG">
+        <img id="profile-pic" src="{{ get_public_path() . get_setting('user_avatar') }}">
 
         <div>
-            <h1 id="user-name">Dennis Ivanov</h1>
-            <p id="bio">Software developer, developer advocate at <a href="https://www.agora.io/en/"
-                    target="_blank">Agora</a>, Udemy <a href="https://www.udemy.com/user/dennis-ivanov-5/"
-                    target="_blank">instructor</a>, <a href="https://www.youtube.com/c/dennisivy"
-                    target="_blank">YouTuber</a> with 166k+ subs and contributor at <a
-                    href="https://youtu.be/PtQiiknWUcI?t=6" target="_blank">Traversy Media</a>.</p>
-            <p id="email">👉 dennis@dennisivy.com</p>
+            <h1 id="user-name">{{ get_setting('user_name') }}</h1>
+            <p id="bio">{!! get_setting('user_bio') !!}</p>
+            <p id="email">👉 {{ get_setting('user_email') }}</p>
         </div>
     </section>
 
@@ -21,7 +17,10 @@
                 @foreach ($data['sociallinks'] as $link)
                     <a href="{{ $link->link }}" target="_blank">{{ $link->name }}</a>
                 @endforeach
-                <a href="./assets/resume.pdf" target="_blank">Download Resume</a>
+                <a href="{{ get_public_path() . get_setting('user_resume') }}" target="_blank">View Resume</a>
+                <a href="{{ get_public_path() . get_setting('user_resume') }}" target="_blank"
+                    download="{{ get_setting('user_name') }}_Resume.pdf">Download
+                    Resume</a>
             </div>
         </section>
     @endif
