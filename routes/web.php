@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginSecurityController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\SkillController;
@@ -29,12 +31,12 @@ Auth::routes();
 Route::group([], function () {
 // Routes to CRUD skills
     Route::middleware([])->group(function () {
-        Route::middleware(['auth'])->get('/backend/features/skills/index', [SkillController::class, 'index'])->name('backend.features.skills.index');
-        Route::middleware(['auth'])->get('/backend/features/skills/create', [SkillController::class, 'create'])->name('backend.features.skills.create');
-        Route::middleware(['auth'])->post('/backend/features/skills/store', [SkillController::class, 'store'])->name('backend.features.skills.store');
-        Route::middleware(['auth'])->get('/backend/features/skills/{skill}/edit', [SkillController::class, 'edit'])->name('backend.features.skills.edit');
-        Route::middleware(['auth'])->post('/backend/features/skills/{skill}/update', [SkillController::class, 'update'])->name('backend.features.skills.update');
-        Route::middleware(['auth'])->post('/backend/features/skills/{skill}/delete', [SkillController::class, 'destroy'])->name('backend.features.skills.delete');
+        Route::middleware(['auth', '2fa'])->get('/backend/features/skills/index', [SkillController::class, 'index'])->name('backend.features.skills.index');
+        Route::middleware(['auth', '2fa'])->get('/backend/features/skills/create', [SkillController::class, 'create'])->name('backend.features.skills.create');
+        Route::middleware(['auth', '2fa'])->post('/backend/features/skills/store', [SkillController::class, 'store'])->name('backend.features.skills.store');
+        Route::middleware(['auth', '2fa'])->get('/backend/features/skills/{skill}/edit', [SkillController::class, 'edit'])->name('backend.features.skills.edit');
+        Route::middleware(['auth', '2fa'])->post('/backend/features/skills/{skill}/update', [SkillController::class, 'update'])->name('backend.features.skills.update');
+        Route::middleware(['auth', '2fa'])->post('/backend/features/skills/{skill}/delete', [SkillController::class, 'destroy'])->name('backend.features.skills.delete');
     });
 // Routes to CRUD techstacks
     Route::middleware([])->group(function () {
@@ -73,5 +75,26 @@ Route::group([], function () {
         Route::middleware(['auth'])->post('/backend/features/projects/{project}/delete', [ProjectController::class, 'destroy'])->name('backend.features.projects.delete');
     });
 
+// Profile and Password Route
+    Route::middleware([])->group(function () {
+        Route::middleware(['auth'])->get('/backend/settings/user/profile', [ProfileController::class, 'indexProfile'])->name('backend.settings.user.profile.index');
+        Route::middleware(['auth'])->post('/backend/settings/user/profile', [ProfileController::class, 'updateProfile'])->name('backend.settings.user.profile.update');
+        Route::middleware(['auth'])->post('/backend/settings/user/avatar', [ProfileController::class, 'updateAvatar'])->name('backend.settings.user.avatar.update');
+        Route::middleware(['auth'])->get('/backend/settings/user/password', [ProfileController::class, 'indexPassword'])->name('backend.settings.user.password.index');
+        Route::middleware(['auth'])->post('/backend/settings/user/password', [ProfileController::class, 'updatePassword'])->name('backend.settings.user.password.update');
+    });
+
 });
+
+Route::group(['prefix' => '2fa'], function () {
+    Route::middleware(['auth', '2fa'])->post('/generate2faSecret', [LoginSecurityController::class, 'generate2faSecret'])->name('generate2faSecret');
+    Route::middleware(['auth', '2fa'])->post('/enable2fa', [LoginSecurityController::class, 'enable2fa'])->name('enable2fa');
+    Route::middleware(['auth', '2fa'])->post('/disable2fa', [LoginSecurityController::class, 'disable2fa'])->name('disable2fa');
+
+    // 2fa middleware
+    Route::post('/2faVerify', function () {
+        return redirect()->route('backend.settings.user.password.index')->with('success', 'Login Successful.');
+    })->name('2faVerify')->middleware('2fa');
+});
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

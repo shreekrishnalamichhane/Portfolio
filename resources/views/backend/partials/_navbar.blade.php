@@ -43,8 +43,8 @@
                     <div class="topbar-item cursor-pointer symbol px-3 px-lg-5 me-n3 me-lg-n5 symbol-30px symbol-md-35px"
                         data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end"
                         data-kt-menu-flip="bottom">
-                        <img src="{{ get_public_path() . Auth::user()->avatar }}"
-                            alt="{{ Auth::user()->name }}'s Avatar" />
+                        <img src="{{ get_public_path() . get_setting('user_avatar') }}"
+                            alt="{{ get_setting('user_name') }}'s Avatar" />
                     </div>
                     <!--begin::User account menu-->
                     <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-primary fw-bold py-4 fs-6 w-275px"
@@ -54,13 +54,13 @@
                             <div class="menu-content d-flex align-items-center px-3">
                                 <!--begin::Avatar-->
                                 <div class="symbol symbol-50px me-5">
-                                    <img src="{{ get_public_path() . Auth::user()->avatar }}"
-                                        alt="{{ Auth::user()->name }}'s Avatar" />
+                                    <img src="{{ get_public_path() . get_setting('user_avatar') }}"
+                                        alt="{{ get_setting('user_name') }}'s Avatar" />
                                 </div>
                                 <!--end::Avatar-->
                                 <!--begin::Username-->
                                 <div class="d-flex flex-column">
-                                    <div class="fw-bolder d-flex align-items-center fs-5">{{ Auth::user()->name }}
+                                    <div class="fw-bolder d-flex align-items-center fs-5">{{ get_setting('user_name') }}
                                         <span
                                             class="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">{{ Auth::user()->role }}</span>
                                     </div>
