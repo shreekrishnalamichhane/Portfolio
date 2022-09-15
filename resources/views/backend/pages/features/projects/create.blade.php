@@ -12,6 +12,22 @@
     <script>
         $('#description').trumbowyg();
     </script>
+    <script>
+        function previewImage() {
+            const parent = event.target.parentNode;
+            parent.querySelector('img.preview').src = URL.createObjectURL(event.target.files[0]);
+            parent.querySelector('a.cancel').classList.remove('d-none');
+            parent.querySelector('label').innerHTML = "Change Image";
+        }
+
+        function cancelImage(originalLink) {
+            const parent = event.target.parentNode;
+            parent.querySelector('img.preview').src = originalLink;
+            parent.querySelector('a.cancel').classList.add('d-none');
+            parent.querySelector('input').value = null;
+            parent.querySelector('label').innerHTML = "Select Image";
+        }
+    </script>
 @endsection
 @section('content')
     <!--begin::Container-->
@@ -70,6 +86,36 @@
                                     @enderror
                                 </div>
                                 <!--end::Input group-->
+                                <!--begin::Image group-->
+                                <div class="fv-row mb-10">
+                                    <!--begin::Label-->
+                                    <label class="form-label fs-6 fw-bolder text-dark required"
+                                        for="cover_img">{{ __('Cover Image') }}
+                                    </label>
+                                    <!--end::Label-->
+                                    <!--begin::File-->
+                                    <div class="mb-2" id="">
+                                        <label for="cover_img" class="btn btn-sm btn-primary me-2">Select Image</label>
+                                        <a class="cancel btn btn-sm btn-light-primary d-none"
+                                            onclick="cancelImage('')">Cancel
+                                            File</a>
+                                        <input type="file" class="d-none" name="cover_img" id="cover_img"
+                                            onchange="previewImage()" accept=".png,.jpg,.jpeg">
+                                        <br>
+                                        <img class="preview pt-3 w-100" src="" alt="">
+                                    </div>
+                                    @error('cover_img')
+                                        <span class="invalid-feedback d-block" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                    <!--end::File-->
+                                    <!--begin::Hint-->
+                                    <span class="form-text text-muted">Max image size is 2MB. Accepted formats : .png .jpg
+                                        .jpeg</span>
+                                    <!--end::Hint-->
+                                </div>
+                                <!--end::Image group-->
                                 <!--begin::Textarea group-->
                                 <div class="fv-row mb-10">
                                     <!--begin::Label-->

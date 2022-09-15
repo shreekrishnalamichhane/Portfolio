@@ -13,6 +13,7 @@ class Project extends Model
         'title',
         'slug',
         'duration',
+        'cover_img',
         'description',
         'source',
         'demo',

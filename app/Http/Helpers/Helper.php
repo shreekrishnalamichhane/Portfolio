@@ -90,20 +90,10 @@ if (!function_exists('render_backend_breadcrumb')) {
 if (!function_exists('upload_file')) {
     function upload_file($request, $name, $path)
     {
-        // return $request->file('image');
-        // //handle file upload
         if ($request->hasFile($name)) {
-            //Get file name with extension
-            $fileNameWithExt = $request->file($name)->getClientOriginalName();
-
-            //Get just filename
-            $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
-            //Get just extension
-            $fileextension = $request->file($name)->getClientOriginalExtension();
-
-            $fileNameToStore = md5($fileName . '_' . time()) . '.' . $fileextension;
-            $pathToStore = $request->file($name)->storeAs('public/' . $path, $fileNameToStore);
-            return "storage/" . $path . $fileNameToStore;
+            $hashName = $request->file($name)->hashName();
+            $request->file($name)->storeAs('public/' . $path, $hashName);
+            return "storage/" . $path . $hashName;
         }
     }
 }

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('title')->nullable(false);
             $table->string('slug')->unique();
             $table->string('duration')->nullable(false);
+            $table->string('cover_img')->nullable(false);
             $table->longText('description')->nullable(false);
             $table->string('source')->nullable(true);
             $table->string('demo')->nullable(true);

@@ -42,6 +42,7 @@ class ProjectController extends Controller
         $request->validate([
             'title' => ['required', 'string'],
             'duration' => ['required', 'string'],
+            'cover_img' => ['required', 'file', 'mimes:png,jpg,jpeg', 'max:2048'],
             'description' => ['required', 'string'],
             'source' => ['nullable', 'url'],
             'demo' => ['nullable', 'url'],
@@ -51,6 +52,9 @@ class ProjectController extends Controller
         $newProject->title = $request->get('title');
         $newProject->slug = random_slug(20);
         $newProject->duration = $request->get('duration');
+        if ($request->hasFile('cover_img')) {
+            $newProject->cover_img = upload_file($request, 'cover_img', 'sitecontents/projects/covers/');
+        }
         $newProject->description = $request->get('description');
         $newProject->source = $request->get('source');
         $newProject->demo = $request->get('demo');
