@@ -47,21 +47,6 @@
         </section>
     @endif
 
-    @if (count($data['workhistories']) > 0)
-        <section id="work-history-wrapper" class="section--page">
-            <h2>Work History</h2>
-            <div class="line-break"></div>
-            @foreach ($data['workhistories'] as $work)
-                <div class="card--work-history">
-                    <strong>🚧 {{ $work->title }}</strong>
-                    <p>{{ $work->duration }}</p>
-                    {!! $work->description !!}
-                </div>
-                <div class="line-break"></div>
-            @endforeach
-        </section>
-    @endif
-
     @if (count($data['projects']) > 0)
         <section class="section--page">
             <h2>Projects & Accomplishments</h2>
@@ -79,6 +64,21 @@
                     See All Projects
                 </a>
             </div>
+        </section>
+    @endif
+
+    @if (count($data['workhistories']) > 0)
+        <section id="work-history-wrapper" class="section--page">
+            <h2>Work History</h2>
+            <div class="line-break"></div>
+            @foreach ($data['workhistories'] as $work)
+                <div class="card--work-history">
+                    <strong>🚧 {{ $work->title }}</strong>
+                    <p>{{ $work->duration }}</p>
+                    {!! $work->description !!}
+                </div>
+                <div class="line-break"></div>
+            @endforeach
         </section>
     @endif
 @endsection

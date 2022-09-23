@@ -1,7 +1,8 @@
 @extends('layouts.frontend')
 
 @section('content')
-    <a href="{{ url()->previous() }}">&#x2190; Go Back</a>
+    <a href="{{ url()->previous() }}">&#x2190; Go Back</a> |
+    <a href="{{ route('frontend.pages.homepage.show') }}"> Home</a>
     <h1>All Projects</h1>
 
     <section class="section--page">

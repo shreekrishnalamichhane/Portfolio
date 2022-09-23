@@ -1,7 +1,8 @@
 @extends('layouts.frontend')
 
 @section('content')
-    <a href="{{ url()->previous() }}">&#x2190; Go Back</a>
+    <a href="{{ url()->previous() }}">&#x2190; Go Back</a> |
+    <a href="{{ route('frontend.pages.homepage.show') }}"> Home</a>
     <h1>{{ $data['project']?->title }}</h1>
     <img style="width: 100%; border-radius:10px;" src="{{ get_public_path() . $data['project']?->cover_img }}" alt="">
     <ul>
