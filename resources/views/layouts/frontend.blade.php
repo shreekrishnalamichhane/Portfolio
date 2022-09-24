@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     @include('frontend.partials._metas')
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/main.css') }}">
+    @yield('styles')
 </head>
 
 <body>
@@ -13,5 +14,6 @@
         @yield('content')
     </div>
 </body>
+@yield('scripts')
 
 </html>
