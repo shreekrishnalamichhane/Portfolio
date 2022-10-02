@@ -50,7 +50,7 @@ class ProfileController extends Controller
     public function updateAvatar(Request $request)
     {
         $request->validate([
-            'avatar' => ['required', 'file', 'max:2048', 'mimes:png,jpg,svg,jpeg,jtif'],
+            'avatar' => ['required', 'file', 'max:2048', 'mimes:png,jpg,jpeg'],
         ]);
         $avatar = get_setting('user_avatar');
         if ($avatar != '/storage/usercontents/avatars/default.png' || $avatar != '/storage/usercontents/avatars/default.svg') {

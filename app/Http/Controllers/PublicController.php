@@ -197,7 +197,15 @@ class PublicController extends Controller
         $var['title'] = $data['project']->title . " | Project | " . $var['name'];
         $var['locale'] = 'en_US';
         $var['description'] = $data['project']->short_description;
-        $var['keywords'] = $data['project']->keywords;
+
+        $var['tags'] = json_decode($data['project']->tags);
+
+        $var['keywords'] = "";
+
+        foreach ($var['tags'] as $key => $value) {
+            $var['keywords'] = $var['keywords'] . $value->value . ",";
+        }
+        $var['keywords'] = substr($var['keywords'], 0, -1);
 
         $image_info = getimagesize($data['project']->cover_img);
         $var['avatar'] = get_public_path() . $data['project']->cover_img;

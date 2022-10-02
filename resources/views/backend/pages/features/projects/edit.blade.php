@@ -11,6 +11,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         $('#description').trumbowyg();
+        $("#duration").daterangepicker();
+        new Tagify(document.querySelector('#tags'));
     </script>
 @endsection
 @section('content')
@@ -62,7 +64,7 @@
                                         class="form-control form-control-lg form-control-solid @error('duration') is-invalid @enderror"
                                         id="duration" type="text" name="duration"
                                         value="{{ $data['project']?->duration }}" required autocomplete="duration"
-                                        placeholder="Enter duration e.g, 2019-2022" />
+                                        placeholder="Enter duration" />
                                     <!--end::Input-->
                                     @error('duration')
                                         <span class="invalid-feedback" role="alert">
@@ -71,6 +73,24 @@
                                     @enderror
                                 </div>
                                 <!--end::Input group-->
+                                <!--begin::Textarea group-->
+                                <div class="fv-row mb-10">
+                                    <!--begin::Label-->
+                                    <label class="form-label fs-6 fw-bolder text-dark required"
+                                        for="short_description">{{ __('Short Description') }}</label>
+                                    <!--end::Label-->
+                                    <!--begin::Textarea-->
+                                    <textarea name="short_description"
+                                        class="form-control form-control-solid @error('short_description') is-invalid @enderror" id="short_description"
+                                        placeholder="Enter short description" rows="3" required>{{ $data['project']?->short_description }}</textarea>
+                                    <!--end::Textarea-->
+                                    @error('short_description')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <!--end::Textarea group-->
                                 <!--begin::Textarea group-->
                                 <div class="fv-row mb-10">
                                     <!--begin::Label-->
@@ -88,6 +108,26 @@
                                     @enderror
                                 </div>
                                 <!--end::Textarea group-->
+                                <!--begin::Input group-->
+                                <div class="fv-row mb-10">
+                                    <!--begin::Label-->
+                                    <label class="form-label fs-6 fw-bolder text-dark required"
+                                        for="tags">{{ __('Tags') }}
+                                    </label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input
+                                        class="form-control form-control-lg form-control-solid @error('tags') is-invalid @enderror"
+                                        id="tags" type="text" name="tags" value="{{ $data['project']?->tags }}"
+                                        autocomplete="tags" placeholder="Enter tags" />
+                                    <!--end::Input-->
+                                    @error('tags')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <!--end::Input group-->
                                 <!--begin::Input group-->
                                 <div class="fv-row mb-10">
                                     <!--begin::Label-->

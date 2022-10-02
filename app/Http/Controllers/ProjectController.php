@@ -42,8 +42,10 @@ class ProjectController extends Controller
         $request->validate([
             'title' => ['required', 'string'],
             'duration' => ['required', 'string'],
+            'short_description' => ['required', 'string'],
             'cover_img' => ['required', 'file', 'mimes:png,jpg,jpeg', 'max:2048'],
             'description' => ['required', 'string'],
+            'tags' => ['required', 'string'],
             'source' => ['nullable', 'url'],
             'demo' => ['nullable', 'url'],
         ]);
@@ -52,10 +54,12 @@ class ProjectController extends Controller
         $newProject->title = $request->get('title');
         $newProject->slug = random_slug(20);
         $newProject->duration = $request->get('duration');
+        $newProject->short_description = $request->get('short_description');
         if ($request->hasFile('cover_img')) {
             $newProject->cover_img = upload_file($request, 'cover_img', 'sitecontents/projects/covers/');
         }
         $newProject->description = $request->get('description');
+        $newProject->tags = $request->get('tags');
         $newProject->source = $request->get('source');
         $newProject->demo = $request->get('demo');
 
@@ -102,14 +106,18 @@ class ProjectController extends Controller
         $request->validate([
             'title' => ['required', 'string'],
             'duration' => ['required', 'string'],
+            'short_description' => ['required', 'string'],
             'description' => ['required', 'string'],
+            'tags' => ['required', 'string'],
             'source' => ['nullable', 'url'],
             'demo' => ['nullable', 'url'],
         ]);
 
         $project->title = $request->get('title');
         $project->duration = $request->get('duration');
+        $project->short_description = $request->get('short_description');
         $project->description = $request->get('description');
+        $project->tags = $request->get('tags');
         $project->source = $request->get('source');
         $project->demo = $request->get('demo');
 
