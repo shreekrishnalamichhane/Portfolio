@@ -20,6 +20,7 @@ class ProfileController extends Controller
         $data['user']['resume'] = get_setting('user_resume');
         $data['user']['phone'] = get_setting('user_phone');
         $data['user']['avatar'] = get_setting('user_avatar');
+        $data['user']['twitter_handle'] = get_setting('user_twitter_handle');
         return view('backend.pages.settings.user.profile', compact(['page', 'data']));
     }
 
@@ -30,12 +31,13 @@ class ProfileController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'bio' => ['required', 'max:2048'],
             'resume' => ['nullable', 'file', 'max:5620', 'mimes:pdf'],
+            'twitter_handle' => ['required', 'string'],
             'phone' => ['nullable', new PhoneNumber],
         ]);
 
         $user = $request->user();
         set_setting('user_name', $request->get('name'));
-        set_setting('user_email', $request->get('email'));
+        set_setting('user_twitter_handle', $request->get('twitter_handle'));
         set_setting('user_phone', $request->get('phone'));
         set_setting('user_bio', $request->get('bio'));
         set_setting('user_resume', upload_file($request, 'resume', 'usercontents/resume/'));

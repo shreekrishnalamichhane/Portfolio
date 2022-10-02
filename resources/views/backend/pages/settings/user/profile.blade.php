@@ -291,6 +291,33 @@
                             <div class="row fv-row mb-7">
                                 <div class="col-md-12">
                                     <!--begin::Label-->
+                                    <label class="fs-6 fw-bold form-label mt-3 required">
+                                        <span class="">Twitter Handle</span>
+                                        <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip"
+                                            title="Enter your twitter handle"></i>
+                                    </label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <div class="input-group mb-5">
+                                        <span class="input-group-text">@</span>
+                                        <input type="text"
+                                            class="form-control form-control-solid @error('twitter_handle') is-invalid @enderror"
+                                            id="twitter_handle" name="twitter_handle"
+                                            value="{{ $data['user']->twitter_handle }}" />
+                                    </div>
+                                    <!--end::Input-->
+                                    @error('twitter_handle')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <!--end::Input group-->
+                            <!--begin::Input group-->
+                            <div class="row fv-row mb-7">
+                                <div class="col-md-12">
+                                    <!--begin::Label-->
                                     <label class="fs-6 fw-bold form-label mt-3">
                                         <span class="">Phone</span>
                                         <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip"
