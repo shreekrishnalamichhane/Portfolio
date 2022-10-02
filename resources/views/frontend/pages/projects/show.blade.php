@@ -1,5 +1,8 @@
 @extends('layouts.frontend')
 
+@section('styles')
+    <link rel="stylesheet" href="https://cdn.shreekrishnalamichhane.com.np/ShareMe/dist/index.min.css">
+@endsection
 @section('scripts')
     <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
     <script>
@@ -9,6 +12,17 @@
             background: '',
             scrollOffset: 0,
         })
+    </script>
+    <script src="https://cdn.shreekrishnalamichhane.com.np/ShareMe/dist/index.min.js"></script>
+    <script>
+        new ShareMe('.share_me_inline', {
+            style: "inline",
+            modalOverlayColor: "rgb(0,0,0,0.5)",
+            modalBgColor: "white",
+            modalTextColor: "black",
+            primaryButtons: "facebook,twitter,pinterest,skype,whatsapp",
+            modalButtons: "blogger,facebook,gmail,linkedin,messenger,pinterest,print,skype,telegram,twitter,viber,whatsapp",
+        });
     </script>
 @endsection
 @section('content')
@@ -28,4 +42,10 @@
     <div class="content">
         {!! $data['project']?->description !!}
     </div>
+    <hr>
+    <span>Share this article :
+        <div class="share_me_inline" style="padding:15px 0;">
+        </div>
+    </span>
+    <hr>
 @endsection
