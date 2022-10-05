@@ -42,8 +42,8 @@
                         <span class="menu-section text-muted text-uppercase fs-8 ls-1">Dashboard</span>
                     </div>
                 </div>
-                {{-- <div data-kt-menu-trigger="click"
-                    class="menu-item @if (backend_active_menu('backend.website.dashboard.main')) here show @endif menu-accordion">
+                <div data-kt-menu-trigger="click"
+                    class="menu-item @if (backend_active_menu('backend.features.dashboard.main')) here show @endif menu-accordion">
                     <span class="menu-link">
                         <span class="menu-icon">
                             <i class="bi bi-grid fs-3"></i>
@@ -51,10 +51,10 @@
                         <span class="menu-title">Dashboards</span>
                         <span class="menu-arrow"></span>
                     </span>
-                    <div class="menu-sub menu-sub-accordion @if (backend_active_menu('backend.website.dashboard.main')) menu-active-bg @endif">
+                    <div class="menu-sub menu-sub-accordion @if (backend_active_menu('backend.features.dashboard.main')) menu-active-bg @endif">
                         <div class="menu-item">
-                            <a class="menu-link @if (backend_active_menu('backend.website.dashboard.main')) active @endif"
-                                href="{{ route('backend.website.dashboard.main') }}">
+                            <a class="menu-link @if (backend_active_menu('backend.features.dashboard.main')) active @endif"
+                                href="{{ route('backend.features.dashboard.main') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -62,7 +62,7 @@
                             </a>
                         </div>
                     </div>
-                </div> --}}
+                </div>
                 <div class="menu-item">
                     <div class="menu-content pt-8 pb-2">
                         <span class="menu-section text-muted text-uppercase fs-8 ls-1">Features</span>
