@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginSecurityController;
+use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\PublicController;
@@ -26,9 +27,18 @@ Route::get('/', [PublicController::class, 'home'])->name('frontend.pages.homepag
 Route::get('/projects', [PublicController::class, 'projects_index'])->name('frontend.pages.projects.index');
 Route::get('/projects/{slug}', [PublicController::class, 'projects_show'])->name('frontend.pages.projects.show');
 
-Auth::routes();
+Auth::routes([
+    'register' => false, // Registration routes
+    'reset' => false, // Password Reset Routes
+    'verify' => false, // Email Verification Routes
+    'confirm' => false, // Password Confirmation Routes
+]);
 
 Route::group([], function () {
+    Route::middleware([])->group(function () {
+        Route::redirect('/dashboard', '/backend/features/dashboard/main');
+        Route::middleware(['auth', '2fa'])->get('/backend/features/dashboard/main', [DashboardController::class, 'main'])->name('backend.features.dashboard.main');
+    });
 // Routes to CRUD skills
     Route::middleware([])->group(function () {
         Route::middleware(['auth', '2fa'])->get('/backend/features/skills/index', [SkillController::class, 'index'])->name('backend.features.skills.index');
@@ -96,5 +106,3 @@ Route::group(['prefix' => '2fa'], function () {
         return redirect()->route('backend.settings.user.password.index')->with('success', 'Login Successful.');
     })->name('2faVerify')->middleware('2fa');
 });
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
