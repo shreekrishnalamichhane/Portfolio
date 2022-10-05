@@ -30,7 +30,7 @@
             <h2>Skills & Qualifications</h2>
             <ul id="qualifications--list">
                 @foreach ($data['skills'] as $skill)
-                    <li>✔️ {{ $skill->skill }}</li>
+                    <li>💡 {{ $skill->skill }}</li>
                 @endforeach
             </ul>
         </section>
